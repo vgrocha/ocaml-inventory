@@ -10,7 +10,6 @@ The Items table contain the following fields:
 | name        | string |
 | price       | float  |
 | description | text   |
-|-------------|--------|
 
 Using the CLI you can insert, update and list items in the DB.
 
@@ -35,7 +34,7 @@ Update the price of the "Flux Capacitor", since travelling in time is in high
 demand:
 
 ```
-./_build/default/bin/inventory.exe update 1 -p 100000
+$ ./_build/default/bin/inventory.exe update 1 -p 100000
 ```
 
 Invalid values will yield errors
@@ -57,27 +56,31 @@ In order to build this project you need to have installed:
 Install Inventory's Opam dependencies:
 
 ```
-opam install -y  --deps-only .
+$ opam install -y  --deps-only .
 ```
 
 ### Build
 
-Build with `dune build`.
+Build with 
+
+```
+$ dune build
+```
 
 ### Setup DB
 
-Export Postgres environment variables to target a running cluster that you have
-access to. If you have a local instance, set at least `PGDATABASE`. Also, create
-the tables necessary for the app:
+Export Postgres `PG*` environment variables to target a running cluster that you
+have access to. If you have a local instance, set at least `PGDATABASE`. Also, 
+create the tables necessary for the app:
 
 ```
-export PGDATABASE=vgrocha
-./_build/default/bin/inventory.exe create-tables
+$ export PGDATABASE=vgrocha
+$ ./_build/default/bin/inventory.exe create-tables
 ```
 
 You are all setup and ready to go.
 
 ## Known issues
 
-- You can create items with `update` command
+- You can create items with the `update` command
 - No tests
