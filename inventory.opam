@@ -1,0 +1,19 @@
+opam-version: "1.2"
+maintainer: "vinicius@gnpsmartsolutions.com"
+authors: ["Vinicius"]
+
+build: [
+  ["dune" "subst"] {pinned}
+  ["dune" "build" "-p" name "-j" jobs]
+]
+
+build-test: ["dune" "runtest" "-p" name]
+
+depends: [
+  "async" {build}
+  "core" {build}
+  "dune" {build}
+  "pgx_async" {build}
+  "ppx_jane" {build}
+  "alcotest" {test}
+]
