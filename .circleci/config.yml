@@ -6,6 +6,6 @@ jobs:
     steps:
       - checkout
       - run: echo "Hello World"
-      - run: apt install -y m4
+      - run: sudo apt install -y m4
       - run: opam install -y  --deps-only .
       - run: dune build
