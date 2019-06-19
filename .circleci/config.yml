@@ -1,0 +1,10 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: ocaml/opam2:ubuntu
+    steps:
+      - checkout
+      - run: echo "Hello World"
+      - run: opam install -y  --deps-only .
+      - run: dune build
